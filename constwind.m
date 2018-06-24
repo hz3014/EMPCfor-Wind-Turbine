@@ -6,7 +6,7 @@ global Ts
 global R
 global M
 R=76;
-Vt=9;
+Vt=9;%initial wind speed setting
 T=6; 
 Ts=0.1;
 M=4800;
@@ -26,7 +26,7 @@ beq1=[];
 [y,fvall,exitflag1,output1]=fmincon('powerextracted',y0,A1,b1,Aeq1,beq1,lb1,ub1,'dude')
 Xs=y(1);
 X0=y(2);
-x1=0.45;
+x1=0.45;%initial rotor speed setting
 x(1)=x1;
 u(1:T)=7000000;
 y=precompute(x1,u);
