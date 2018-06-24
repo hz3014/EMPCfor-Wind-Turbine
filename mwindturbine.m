@@ -14,7 +14,7 @@ global Ts
 global R
 global M
 R=76;
-Vt=9;
+Vt=9;%initial wind speed setting
 T=6; 
 Ts=0.1;
 M=4800;
@@ -54,9 +54,9 @@ X(1)=x(1);
 for t=1:100
     V(t)=Vt;%collecting data for wind speed
     Vt=Vt*(0.1*rand+0.95);%varying wind
-    IP=IP+X(t)*x(T+1);%x(12)
+    IP=IP+X(t)*x(T+1);
     Torque(t)=x(T+1);
-    lembda=x(1)*R/Vt;  %>2.5, 5
+    lembda=x(1)*R/Vt; 
     lembdai=1/(1/(lembda+0.08*zeta)-0.035/(zeta^3+1));
     Cp=0.22*(116/lembdai-0.4*zeta-5)*exp(-12.5/lembdai);
     Ta=density*pi*R^2*Vt^3*Cp/(2*x(1));
