@@ -4,7 +4,7 @@
 %T is the number of predition steps
 %Ts is the sampling time
 %M is the mass of the rotors
-%x1 is the initial state and is set at 0.45 by defult
+%x1 is the initial state and is set at 0.45 by defult, rotor speed is perform within region [0.1,0.45]
 %X is the real state observed
 clear;
 global V
@@ -36,7 +36,7 @@ Xs=y(1);
 X0=y(2);
 
 x1=0.45;
-x(1)=x1;
+x(1)=x1;%initial rotor speed setting
 u(1:T)=7000000;
 y=precompute(x1,u);
 lb(1)=x(1);lb(2:T)=0.1;lb(T+1:2*T-1)=0;
