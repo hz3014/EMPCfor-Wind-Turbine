@@ -1,6 +1,6 @@
 %This file is optimisating under varying wind speed
 %R is rotor radius
-%Vt is windspeed, note that wind table region[3.2,7.3]&[11.5,13]
+%Vt is windspeed, note that wind region is [3.2,15], stabilizes between [3.2,7.3]&[11.5,13]
 %T is the number of predition steps
 %Ts is the sampling time
 %M is the mass of the rotors
