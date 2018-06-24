@@ -6,7 +6,7 @@ global Ts
 global R
 global M
 R=76;
-Vt=9;
+Vt=9;%initial wind speed setting
 T=6; 
 Ts=0.1;
 M=4800;
@@ -26,7 +26,7 @@ beq1=[];
 [y,fvall,exitflag1,output1]=fmincon('powerextracted',y0,A1,b1,Aeq1,beq1,lb1,ub1,'dude')
 Xs=y(1);
 X0=y(2);
-x1=0.45;
+x1=0.45;%initial rotor speed setting
 x(1)=x1;
 u(1:T)=7000000;
 y=precompute(x1,u);
@@ -45,7 +45,7 @@ X(1)=x(1);
 for t=1:100
     V(t)=Vt;
     if t==15
-        Vt=4; %sudden wind change
+        Vt=4; %sudden wind change setting
         [y,fvall,exitflag1,output1]=fmincon('powerextracted',y0,A1,b1,Aeq1,beq1,lb1,ub1,'dude');
         Xs=y(1);
         X0=y(2);
@@ -54,7 +54,7 @@ for t=1:100
     end 
     IP=IP+X(t)*x(T+1);
     Torque(t)=x(T+1);
-    lembda=x(1)*R/Vt;  %>2.5, 5
+    lembda=x(1)*R/Vt;  
     lembdai=1/(1/(lembda+0.08*zeta)-0.035/(zeta^3+1));
     Cp=0.22*(116/lembdai-0.4*zeta-5)*exp(-12.5/lembdai);
     Ta=density*pi*R^2*Vt^3*Cp/(2*x(1));
